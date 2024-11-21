@@ -50,6 +50,12 @@ public class Utility {
         int n;
         for(;;){
             String str = readKayboard(10,false);
+            try{
+                n = Interger.parseInt(str);
+                break;
+            }catch(numberformatException e){
+                System.out.print("Enter wrong number,please enter again:");
+            }
         }
     }
 }
