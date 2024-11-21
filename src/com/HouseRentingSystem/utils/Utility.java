@@ -24,7 +24,25 @@ public class Utility {
                 System.out.println("Selection wrong, please enter 1-5");
             }else break;
         }
+        return c;
     }
-    return c;
 
+    /**
+     * function: read a char from keyboard input
+     * @return a char
+     */
+    public static char readChar(){
+        String str = readKeyBoard(1,false);
+        return str.charAt(0);
+    }
+
+    /**
+     * function: read a char from keyboard input
+     * @param defaultValue
+     * @return
+     */
+    public static char readChar(char defaultValue){
+        String str = readKayBoard(1,true);//either null or a char
+        return(str.length() == 0)? defaultValue : str.charAt();
+    }
 }
