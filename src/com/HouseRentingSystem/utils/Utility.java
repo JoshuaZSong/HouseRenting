@@ -37,12 +37,19 @@ public class Utility {
     }
 
     /**
-     * function: read a char from keyboard input
+     * function: read a char from keyboard input if press enter, it returns default or it will return the on just input
      * @param defaultValue
      * @return
      */
     public static char readChar(char defaultValue){
         String str = readKayBoard(1,true);//either null or a char
         return(str.length() == 0)? defaultValue : str.charAt();
+    }
+
+    public static int readInt(){
+        int n;
+        for(;;){
+            String str = readKayboard(10,false);
+        }
     }
 }
