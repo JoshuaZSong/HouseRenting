@@ -69,21 +69,34 @@ public class Utility {
      * @param defaultValue
      * @return integer or default
      */
-    public static int readInt(int defaultValue){
+    public static int readInt(int defaultValue) {
         int n;
-        for(;;){
-            String str = readKeyBoard(10,true);
-            if(str.equals("")){
+        for (; ; ) {
+            String str = readKeyBoard(10, true);
+            if (str.equals("")) {
                 return defaultValue;
             }
-        }
 
-        //exception
-        try{
-            n = Integer.parseInt(str);
-            break;
-        }catch(NumberFormatException e){
-            System.out.println("Enter wrong number,please enter again:");
+            //exception
+            try {
+                n = Integer.parseInt(str);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Enter wrong number,please enter again:");
+            }
         }
+        return n;
     }
+
+    /**
+     * function:read from keyboard for limit length of chars
+     * @param limit length
+     * @return chars of limited length
+     */
+    public static String readString(int limit){
+        return readKeyBoard(limit,false);
+    }
+
+
+
 }
