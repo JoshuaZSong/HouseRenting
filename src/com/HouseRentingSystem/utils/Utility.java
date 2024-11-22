@@ -46,16 +46,44 @@ public class Utility {
         return(str.length() == 0)? defaultValue : str.charAt();
     }
 
+    /**
+     * function: read from keyboard entry, the length is shorter than 2
+     * @return integer
+     */
     public static int readInt(){
         int n;
         for(;;){
             String str = readKayboard(10,false);
             try{
-                n = Interger.parseInt(str);
+                n = Integer.parseInt(str);
                 break;
             }catch(numberformatException e){
                 System.out.print("Enter wrong number,please enter again:");
             }
+        }
+        return n;
+    }
+
+    /**
+     * function: read from keyboard entry if press enter, it returns default or it will return the on just input
+     * @param defaultValue
+     * @return integer or default
+     */
+    public static int readInt(int defaultValue){
+        int n;
+        for(;;){
+            String str = readKeyBoard(10,true);
+            if(str.equals("")){
+                return defaultValue;
+            }
+        }
+
+        //exception
+        try{
+            n = Integer.parseInt(str);
+            break;
+        }catch(NumberFormatException e){
+            System.out.println("Enter wrong number,please enter again:");
         }
     }
 }
