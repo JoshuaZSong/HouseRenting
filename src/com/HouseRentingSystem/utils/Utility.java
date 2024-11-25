@@ -97,6 +97,30 @@ public class Utility {
         return readKeyBoard(limit,false);
     }
 
+    /**
+     * function: read chars or default value from keyboard, if entered, return default else return chars
+     * @param limit
+     * @param defaultValue
+     * @return
+     */
+    public static String readString(int limit, String defaultValue){
+        String str = readKeyBoard(limit, true);
+        return str.equals("")? defaultValue:str;
+    }
+
+    public static char readConfirmSelectionb(){
+        System.out.println("please select(Y/N):");
+        char c;
+        for(;;){
+            String str = readKeyBoard(1,false).toUpperCase();
+            c = str.charAt(0);
+            if(c == 'Y' || c == 'N'){
+                break;
+            }else{
+                System.out.println("Entered wrong, please select(Y/N)");
+            }
+        }
+    }
 
 
 }
