@@ -128,17 +128,29 @@ public class Utility {
         return c;
     }
 
+    /**
+     * function: read a string
+     * @param limit: the length of the read
+     * @param blankReturn true means empty is acceptable
+     *                    false means not acceptable
+     * if the entry is empty or longer than the limitation, prompt to re-entry
+     * @return
+     */
     private static String readKeyBoard(int limit, boolean blankReturn){
         String line = "";
 
+        //scanner.hasNextLine() to indicate if there's next line
         while(scanner.hasNextLine()){
-            line = scanner.nextLine();
+            line = scanner.nextLine();//read the line
 
+            //if line.length() == 0, even if the user didn't enter anything, enter.
             if(line.length() == 0){
-                if(blankReturn) return line;
-                else continue;
+                if(blankReturn) return line;// if blankReturn == true, return empty
+                else continue;//if blankReturn == false, empty is not acceptable, has to input something
             }
 
+            //if the entry's length is larger than limit, prompt to re-entry
+            //if the entry>0 and <=limit, accept it.
             if(line.length() < 1 || line.length() > limit){
                 System.out.print("Enter the wrong length(Enter can not longer than" + limit + "), please enter again:");
                 continue;
