@@ -18,7 +18,7 @@ public class Utility {
         char c;
         for (;;){
             String str = readKeyBoard(1,false);
-            c = str.CharAt(0);
+            c = str.charAt(0);
             if (c != '1' && c != '2' &&
             c != '3' && c !='4' && c != '5'){
                 System.out.println("Selection wrong, please enter 1-5");
@@ -42,8 +42,8 @@ public class Utility {
      * @return
      */
     public static char readChar(char defaultValue){
-        String str = readKayBoard(1,true);//either null or a char
-        return(str.length() == 0)? defaultValue : str.charAt();
+        String str = readKeyBoard(1,true);//either null or a char
+        return(str.length() == 0)? defaultValue : str.charAt(0);
     }
 
     /**
@@ -53,11 +53,11 @@ public class Utility {
     public static int readInt(){
         int n;
         for(;;){
-            String str = readKayboard(10,false);
+            String str = readKeyBoard(10,false);
             try{
                 n = Integer.parseInt(str);
                 break;
-            }catch(numberformatException e){
+            }catch(NumberFormatException e){
                 System.out.print("Enter wrong number,please enter again:");
             }
         }
@@ -108,7 +108,12 @@ public class Utility {
         return str.equals("")? defaultValue:str;
     }
 
-    public static char readConfirmSelectionb(){
+    /**
+     * function:read from keyboard, Y/N
+     * encapsulate a smaller function into a function
+     * @return Y/N
+     */
+    public static char readConfirmSelection(){
         System.out.println("please select(Y/N):");
         char c;
         for(;;){
@@ -120,6 +125,27 @@ public class Utility {
                 System.out.println("Entered wrong, please select(Y/N)");
             }
         }
+        return c;
+    }
+
+    private static String readKeyBoard(int limit, boolean blankReturn){
+        String line = "";
+
+        while(scanner.hasNextLine()){
+            line = scanner.nextLine();
+
+            if(line.length() == 0){
+                if(blankReturn) return line;
+                else continue;
+            }
+
+            if(line.length() < 1 || line.length() > limit){
+                System.out.print("Enter the wrong length(Enter can not longer than" + limit + "), please enter again:");
+                continue;
+            }
+            break;
+        }
+        return line;
     }
 
 
