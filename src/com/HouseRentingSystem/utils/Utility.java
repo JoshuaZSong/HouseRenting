@@ -39,7 +39,7 @@ public class Utility {
     /**
      * function: read a char from keyboard input if press enter, it returns default or it will return the on just input
      * @param defaultValue
-     * @return
+     * @return default value or the entry
      */
     public static char readChar(char defaultValue){
         String str = readKeyBoard(1,true);//either null or a char
