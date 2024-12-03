@@ -69,4 +69,15 @@ public class House {
     public void setState(String state) {
         this.state = state;
     }
+
+    //Number Landlord PhoneNo Address Rent State(Available/Occupied)
+    @Override
+    public String toString() {
+        return  id +
+                "\t" + name +
+                "\t" + phone +
+                "\t" + address +
+                "\t" + rent +
+                "\t" + state;
+    }
 }
