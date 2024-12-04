@@ -41,7 +41,8 @@ public class HouseView {
                     System.out.println("\t\t\tList");
                     break;
                 case '6':
-                    System.out.println("\t\t\t");
+                    System.out.println("\t\t\tExit");
+                    loop = false;
                     break;
             }
 
