@@ -25,12 +25,24 @@ public class HouseView {
             System.out.println("Please select from 1-6:");
             key = Utility.readChar();
             switch(key){
-                case '1':;
-                case '2':;
-                case '3':;
-                case '4':;
-                case '5':;
-                case '6':;
+                case '1':
+                    System.out.println("\t\t\tNew");
+                    break;
+                case '2':
+                    System.out.println("\t\t\tSearch");
+                    break;
+                case '3':
+                    System.out.println("\t\t\tDelete");
+                    break;
+                case '4':
+                    System.out.println("\t\t\tChange");
+                    break;
+                case '5':
+                    System.out.println("\t\t\tList");
+                    break;
+                case '6':
+                    System.out.println("\t\t\t");
+                    break;
             }
 
         }while(loop);
