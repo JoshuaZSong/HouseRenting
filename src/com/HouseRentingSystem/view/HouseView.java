@@ -15,6 +15,25 @@ public class HouseView {
     private char key = ' '; //user option
     private HouseService houseService = new HouseService(10);
 
+    //addHouse() accept input, new House object, use add function
+    public void addHouse() {
+        System.out.println("==========Add New House==========");
+        System.out.println("Name: ");
+        String name = Utility.readString(15);
+        System.out.println("Phone: ");
+        String phone = Utility.readString(15);
+        System.out.println("Address: ");
+        String address = Utility.readString(30);
+        System.out.println("Rent: ");
+        int rent = Utility.readInt();
+        System.out.println("State(Available/Occupied): ");
+        String state = Utility.readString(9);
+        //new House, the ID is set by the system
+        House house = new House(0, name, phone, address, rent, state);
+
+
+    }
+
     //listHouses() list of houses
     public void listHouses() {
         System.out.println("==========House List==========");
