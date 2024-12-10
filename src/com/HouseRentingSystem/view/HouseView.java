@@ -11,6 +11,11 @@ public class HouseView {
 
     private boolean loop = true; //display loop
     private char key = ' '; //user option
+
+    //listHouses() list of houses
+    public void listHouses(){
+        
+    }
     //Menu display
     public void mainMenu(){
 
