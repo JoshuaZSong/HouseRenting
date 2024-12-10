@@ -19,7 +19,7 @@ public class HouseView {
     public void listHouses() {
         System.out.println("==========House List==========");
         //Number Landlord PhoneNo Address Rent State(Available/Occupied)
-        System.out.println("Number\t\tLandlord\t\tPhoneNo\t\tAddress\t\tRent\t\tState(Available/Occupied)");
+        System.out.println("Number\tLandlord\tPhoneNo\t\t\tAddress\t\tRent\t\tState(Available/Occupied)");
         House[] houses = houseService.list();
         for (int i = 0; i < houses.length; i++) {
             if (houses[i] == null) {
