@@ -1,5 +1,7 @@
 package com.HouseRentingSystem.view;
 
+import com.HouseRentingSystem.domin.House;
+import com.HouseRentingSystem.service.HouseService;
 import com.HouseRentingSystem.utils.Utility;
 
 /**
@@ -11,15 +13,27 @@ public class HouseView {
 
     private boolean loop = true; //display loop
     private char key = ' '; //user option
+    private HouseService houseService = new HouseService(10);
 
     //listHouses() list of houses
-    public void listHouses(){
-        
+    public void listHouses() {
+        System.out.println("==========House List==========");
+        //Number Landlord PhoneNo Address Rent State(Available/Occupied)
+        System.out.println("Number\t\tLandlord\t\tPhoneNo\t\tAddress\t\tRent\t\tState(Available/Occupied)");
+        House[] houses = houseService.list();
+        for (int i = 0; i < houses.length; i++) {
+            if (houses[i] == null) {
+                break;
+            }
+            System.out.println(houses[i]);
+        }
+        System.out.println("==========End==========");
     }
-    //Menu display
-    public void mainMenu(){
 
-        do{
+    //Menu display
+    public void mainMenu() {
+
+        do {
             System.out.println("==========House Renting System==========");
             System.out.println("\t\t\t1 New House");
             System.out.println("\t\t\t2 Search House");
@@ -29,7 +43,7 @@ public class HouseView {
             System.out.println("\t\t\t6 Exit");
             System.out.println("Please select from 1-6:");
             key = Utility.readChar();
-            switch(key){
+            switch (key) {
                 case '1':
                     System.out.println("\t\t\tNew");
                     break;
@@ -43,7 +57,7 @@ public class HouseView {
                     System.out.println("\t\t\tChange");
                     break;
                 case '5':
-                    System.out.println("\t\t\tList");
+                    listHouses();
                     break;
                 case '6':
                     System.out.println("\t\t\tExit");
@@ -51,6 +65,6 @@ public class HouseView {
                     break;
             }
 
-        }while(loop);
+        } while (loop);
     }
 }
