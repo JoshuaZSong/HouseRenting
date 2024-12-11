@@ -29,7 +29,12 @@ public class HouseView {
         System.out.println("State(Available/Occupied): ");
         String state = Utility.readString(9);
         //new House, the ID is set by the system
-        House house = new House(0, name, phone, address, rent, state);
+        House newhouse = new House(0, name, phone, address, rent, state);
+        if(houseService.add(newhouse)){
+            System.out.println("==========Successfully Add New House!==========");
+        }else{
+            System.out.println("==========Failed to Add New House!==========");
+        }
 
 
     }
@@ -64,7 +69,7 @@ public class HouseView {
             key = Utility.readChar();
             switch (key) {
                 case '1':
-                    System.out.println("\t\t\tNew");
+                    addHouse();
                     break;
                 case '2':
                     System.out.println("\t\t\tSearch");
