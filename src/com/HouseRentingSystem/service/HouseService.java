@@ -12,16 +12,31 @@ import com.HouseRentingSystem.domin.House;
 public class HouseService {
 
     private House[] houses;// house object
+    private int houseNums = 1;//counting how many houses information are there
+    private int idCounter = 1;
 
-    public HouseService(int size){
+    public HouseService(int size) {
         //new houses
         houses = new House[size];//when creating HouseService object,designate the size
         //For testing,initial a test object
-        houses[0] = new House(1,"Josh","(111)111-1111","Calgary",1400,"Vacant");
+        houses[0] = new House(1, "Josh", "(111)111-1111", "Calgary", 1400, "Vacant");
+    }
+
+    //function: add new object, return boolean
+    public boolean add(House newHouse) {
+        if (houseNums == houses.length) {
+            System.out.println("=====list is full======");
+            return false;
+        }
+
+        houses[houseNums++] = newHouse;
+        //ID increasing
+        newHouse.setId(++idCounter);
+        return true;
     }
 
     //function: return houses
-    public House[] list(){
+    public House[] list() {
         return houses;
     }
 }
