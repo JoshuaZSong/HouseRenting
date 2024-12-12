@@ -22,6 +22,27 @@ public class HouseService {
         houses[0] = new House(1, "Josh", "(111)111-1111", "Calgary", 1400, "Vacant");
     }
 
+    //function: delete a house info
+    public boolean del(int delId) {
+        int index = -1;
+        for (int i = 0; i < houseNums; i++) {
+            if (delId == houses[i].getId()) {
+                index = i;
+            }
+        }
+        if (index == -1) {
+            return false;
+        }
+        //delete the house info
+        //cover the former house info by move the latter one to the former one
+        for (int i = index; i < houseNums - 1; i++) {
+            houses[i] = houses[i + 1];
+        }
+        houses[--houseNums] = null;//houses[houseNums-1] = null;//houseNums--;
+        return true;
+
+    }
+
     //function: add new object, return boolean
     public boolean add(House newHouse) {
         if (houseNums == houses.length) {
@@ -34,6 +55,16 @@ public class HouseService {
         newHouse.setId(++idCounter);
         return true;
     }
+
+    //function: search house information by ID
+    public House findById(int findId){
+        for(int i = 0; i<houseNums; i++){
+            if(findId == houses[i].getId())
+                return houses[i];
+        }
+        return null;
+    }
+
 
     //function: return houses
     public House[] list() {

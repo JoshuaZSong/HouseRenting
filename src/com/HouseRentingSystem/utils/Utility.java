@@ -114,7 +114,6 @@ public class Utility {
      * @return Y/N
      */
     public static char readConfirmSelection(){
-        System.out.println("please select(Y/N):");
         char c;
         for(;;){
             String str = readKeyBoard(1,false).toUpperCase();
